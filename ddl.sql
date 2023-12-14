@@ -18,8 +18,6 @@ CREATE TABLE `coche` (
   PRIMARY KEY (`matricula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
-
 CREATE TABLE `empleado` (
   `id` int NOT NULL,
   `nombre` varchar(50) NOT NULL,
@@ -31,8 +29,6 @@ CREATE TABLE `empleado` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
-
 CREATE TABLE `cliente` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nif` varchar(9) DEFAULT NULL,
@@ -43,8 +39,6 @@ CREATE TABLE `cliente` (
   `categoria` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
 
 CREATE TABLE `venta` (
   `fecha` date NOT NULL,
