@@ -58,6 +58,7 @@ public class Cliente {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
+	
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nif=" + nif + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono="
