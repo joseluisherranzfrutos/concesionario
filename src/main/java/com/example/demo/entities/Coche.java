@@ -10,66 +10,87 @@ import jakarta.persistence.Table;
 public class Coche {
 	
 	@Id
-	@Column(name="DEPARTMENT_ID")
-	private Integer id;
-	@Column(name="DEPARTMENT_NAME")
-	private String nombre;
-	@Column(name="LOCATION_ID")
-	private Integer direccionId;
-	@Column(name="MANAGER_ID")
-	private Integer managerId;
-	
+	@Column(name="MATRICULA")
+	private String matricula;
+	@Column(name="MARCA")
+	private String marca;
+	@Column(name="MODELO")
+	private String modelo;
+	@Column(name="COLOR")
+	private String color;
+	@Column(name="PRECIO")
+	private Double precio;
+	@Column(name="ESTADO")
+	private Boolean estado;
+	@Column(name="ANYO")
+	private Boolean anyo;
 	
 	public Coche() {
 		super();
 	}
 
-
-	public Integer getId() {
-		return id;
+	public String getMatricula() {
+		return matricula;
 	}
 
-
-	public void setId(Integer id) {
-		this.id = id;
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
-
-	public String getNombre() {
-		return nombre;
+	public String getMarca() {
+		return marca;
 	}
 
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setMarca(String marca) {
+		this.marca = marca;
 	}
 
-
-	public Integer getDireccionId() {
-		return direccionId;
+	public String getModelo() {
+		return modelo;
 	}
 
-
-	public void setDireccionId(Integer direccionId) {
-		this.direccionId = direccionId;
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
 	}
 
-
-	public Integer getManagerId() {
-		return managerId;
+	public String getColor() {
+		return color;
 	}
 
-
-	public void setManagerId(Integer managerId) {
-		this.managerId = managerId;
+	public void setColor(String color) {
+		this.color = color;
 	}
 
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
+	public Boolean getAnyo() {
+		return anyo;
+	}
+
+	public void setAnyo(Boolean anyo) {
+		this.anyo = anyo;
+	}
 
 	@Override
 	public String toString() {
-		return "Departamento [id=" + id + ", nombre=" + nombre + ", direccionId=" + direccionId + ", managerId="
-				+ managerId + "]";
+		return "Coche [matricula=" + matricula + ", marca=" + marca + ", modelo=" + modelo + ", color=" + color
+				+ ", precio=" + precio + ", estado=" + estado + ", anyo=" + anyo + "]";
 	}
+
 	
 	
 
