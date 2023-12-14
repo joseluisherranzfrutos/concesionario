@@ -13,18 +13,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.bussiness.ServicioCliente;
+import com.example.demo.common.exceptions.ServicioException;
+import com.example.demo.entities.Cliente;
+import com.example.demo.entities.Coche;
+
 
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
 	
 	@Autowired
-	//ClienteDepartamento servicio;
+	ServicioCliente servicio;
 	
 	@GetMapping
-	public void list() {
+	
+public List<Cliente> list() throws ServicioException{
 		
-		System.out.print("prueba");
+		return servicio.listClientes();
+		
+		
+		
 		
 		
 	}
