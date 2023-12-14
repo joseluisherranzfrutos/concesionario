@@ -21,7 +21,6 @@ public class ServicioCocheImpl implements ServicioCoche {
 	@Autowired
 	CocheRepository repository;
 	
-	
 	@Override
 	public List<Coche> listCoches() throws ServicioException{
 		log.info("[listCoches]");

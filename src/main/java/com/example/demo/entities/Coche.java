@@ -23,7 +23,7 @@ public class Coche {
 	@Column(name="ESTADO")
 	private Boolean estado;
 	@Column(name="ANYO")
-	private Boolean anyo;
+	private Integer anyo;
 	
 	public Coche() {
 		super();
@@ -77,11 +77,11 @@ public class Coche {
 		this.estado = estado;
 	}
 
-	public Boolean getAnyo() {
+	public Integer getAnyo() {
 		return anyo;
 	}
 
-	public void setAnyo(Boolean anyo) {
+	public void setAnyo(Integer anyo) {
 		this.anyo = anyo;
 	}
 
@@ -90,8 +90,5 @@ public class Coche {
 		return "Coche [matricula=" + matricula + ", marca=" + marca + ", modelo=" + modelo + ", color=" + color
 				+ ", precio=" + precio + ", estado=" + estado + ", anyo=" + anyo + "]";
 	}
-
-	
-	
 
 }
