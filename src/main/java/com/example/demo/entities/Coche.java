@@ -26,6 +26,7 @@ public class Coche {
 	private Boolean anyo;
 	
 	public Coche() {
+		super();
 	}
 
 	public String getMatricula() {
