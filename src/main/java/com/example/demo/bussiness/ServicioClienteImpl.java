@@ -42,12 +42,7 @@ public class ServicioClienteImpl implements ServicioCliente {
 	}
 
 
-	@Override
-	public List<Cliente> listClientes1() throws ServicioException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+
 
 	
 
