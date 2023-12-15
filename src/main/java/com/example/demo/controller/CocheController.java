@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,9 +38,18 @@ public class CocheController {
 		return servicio.listCochesNoVendidos();
 	}
 	
+//	@GetMapping(value="/buscarMarca/{marca}")
+//	public List<Coche> listBuscarMarca(@PathVariable("marca") String marca) throws ServicioException{
+//		return servicio.listBuscarMarca(marca);
+//	}
+	
+	@GetMapping(value="/{marca}")
+	public List<Coche> listBuscarMarca(@PathVariable String marca) throws ServicioException{
+		return servicio.listBuscarMarca(marca);
+	}
+	
 	@PostMapping
 	public Coche create(@RequestBody Coche coche) throws ServicioException {
-		
 		return servicio.grabarCoche(coche);
 	}
 	

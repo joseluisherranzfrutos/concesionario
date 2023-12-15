@@ -83,6 +83,22 @@ public class ServicioCocheImpl implements ServicioCoche {
 		return coche;
 		
 	}
+
+	@Override
+	public List<Coche> listBuscarMarca(String marca) throws ServicioException {
+		log.info("[listBuscarMarca]");
+		
+		List<Coche> coches;
+		
+		try {
+			coches= repository.findByMarca(marca);
+			
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return coches;
+	}
 	
 	
 
