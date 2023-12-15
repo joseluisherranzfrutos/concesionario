@@ -9,4 +9,8 @@ public interface ServicioCoche {
 
 	List<Coche> listCoches() throws ServicioException;
 
+	List<Coche> listCochesVendidos() throws ServicioException;
+
+	List<Coche> listCochesNoVendidos() throws ServicioException;
+
 }

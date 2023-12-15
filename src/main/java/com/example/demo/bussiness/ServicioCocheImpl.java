@@ -1,7 +1,6 @@
 package com.example.demo.bussiness;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +36,38 @@ public class ServicioCocheImpl implements ServicioCoche {
 		return coches;
 		
 	}
+
+	@Override
+	public List<Coche> listCochesVendidos() throws ServicioException {
+		log.info("[listCochesVendidos]");
+		
+		List<Coche> coches;
+		
+		try {
+			coches= repository.findByEstadoTrue();
+			
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return coches;
+	}
 	
+	@Override
+	public List<Coche> listCochesNoVendidos() throws ServicioException {
+		log.info("[listCochesNoVendidos]");
+		
+		List<Coche> coches;
+		
+		try {
+			coches= repository.findByEstadoFalse();
+			
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return coches;
+	}
 	
 	
 
