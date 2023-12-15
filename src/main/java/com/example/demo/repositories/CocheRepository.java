@@ -14,4 +14,7 @@ public interface CocheRepository extends JpaRepository<Coche, String>{
 	@Query
 	List<Coche> findByEstadoFalse();
 
+
+	List<Coche> findByMarca(String marca);
+
 }

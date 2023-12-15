@@ -15,4 +15,6 @@ public interface ServicioCoche {
 
 	Coche grabarCoche(Coche coche) throws ServicioException;
 
+	List<Coche> listBuscarMarca(String marca) throws ServicioException;
+
 }
