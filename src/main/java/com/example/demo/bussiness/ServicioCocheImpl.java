@@ -85,7 +85,7 @@ public class ServicioCocheImpl implements ServicioCoche {
 	}
 
 	@Override
-	public List<Coche> listBuscarMarca(String marca) throws ServicioException {
+	public List<Coche> findByMarca(String marca) throws ServicioException {
 		log.info("[listBuscarMarca]");
 		
 		List<Coche> coches;
