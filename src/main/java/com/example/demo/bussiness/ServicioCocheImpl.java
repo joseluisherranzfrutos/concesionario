@@ -68,6 +68,21 @@ public class ServicioCocheImpl implements ServicioCoche {
 		}
 		return coches;
 	}
+
+	@Override
+	public Coche grabarCoche(Coche coche) throws ServicioException {
+		log.info("[grabarCoche]");
+		log.info("[coche: "+coche.toString()+"]");
+		
+		try{
+			coche =repository.save(coche);
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return coche;
+		
+	}
 	
 	
 

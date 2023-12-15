@@ -13,4 +13,6 @@ public interface ServicioCoche {
 
 	List<Coche> listCochesNoVendidos() throws ServicioException;
 
+	Coche grabarCoche(Coche coche) throws ServicioException;
+
 }
