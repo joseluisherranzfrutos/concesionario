@@ -77,6 +77,8 @@ public class ServicioVentaImpl implements ServicioVenta{
 				
 				venta.setMonto(ventaDTO.getMonto());
 				venta.setFecha(ventaDTO.getFecha());
+				cocheOp.get().setEstado(true);
+				cocheRepository.save(cocheOp.get());
 				
 				//cocheRepository.setEstadoTrue(cocheOp.get().getMatricula());
 				
