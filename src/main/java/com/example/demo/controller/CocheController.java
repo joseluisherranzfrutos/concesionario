@@ -44,6 +44,11 @@ public class CocheController {
 		return servicio.findByMarca(marca);
 	}
 	
+	@GetMapping(value="/buscar")
+	public List<Coche> findByMarcaModelo(@Param(value = "marca") String marca,@Param(value = "modelo") String modelo) throws ServicioException{
+		return servicio.findByMarcaModelo(marca,modelo);
+	}
+	
 	@PostMapping
 	public Coche create(@RequestBody Coche coche) throws ServicioException {
 		return servicio.grabarCoche(coche);
