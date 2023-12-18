@@ -24,14 +24,23 @@ public class VentaController {
 	@GetMapping
 	public List<Venta> list() throws ServicioException{
 		
-		return servicio.listVentas();
-		
+		return servicio.listVentas();	
 	}
 	
 	@PostMapping
 	public Venta create(@RequestBody VentaDTO venta) throws ServicioException {
 		
 		return servicio.grabarVenta(venta);
+	}
+	
+	@GetMapping(value="/beneficios")
+	public Double beneficios() throws ServicioException{
+		List<Venta> ventas = servicio.listVentas();
+		Double beneficios=0D;
+		for (Venta venta : ventas) {
+			beneficios += venta.getMonto()-venta.getCoche().getPrecio();
+		}
+		return beneficios;
 	}
 	
 }
