@@ -99,6 +99,12 @@ public class ServicioCocheImpl implements ServicioCoche {
 		}
 		return coches;
 	}
+
+	@Override
+	public List<Coche> findByModelo(String modelo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 
