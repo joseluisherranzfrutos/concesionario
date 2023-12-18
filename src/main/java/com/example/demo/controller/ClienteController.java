@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +20,9 @@ public class ClienteController {
 	ServicioCliente servicio;
 	
 	@GetMapping
-	
-public List<Cliente> list() throws ServicioException{
+	public List<Cliente> list() throws ServicioException{
 		
 		return servicio.listClientes();
-		
-		
-		
-		
-		
 	}
-	
 	
 }
