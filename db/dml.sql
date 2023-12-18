@@ -11,3 +11,7 @@ VALUES
   ('ABC1234', 'Toyota', 'Camry', 'Rojo', 25000.50, 0, 2022),
   ('XYZ5678', 'Honda', 'Civic', 'Azul', 22000.75, 0, 2021),
   ('DEF9876', 'Ford', 'Mondeo', 'Negro', 20000.00, 0, 2020);
+  
+  INSERT INTO concesionario.venta (`fecha`,`idCliente`,`idEmpleado`,`idCoche`,`monto`) VALUES 
+('2023-01-23',2,1,'DEF9876',30000),
+('2023-12-14',1,2,'XYZ5678',35000);
