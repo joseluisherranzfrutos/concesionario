@@ -1,3 +1,97 @@
+package com.example.demo.entities;
+
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+
+@Entity
+@Table(name="VENTA")
+public class Venta{
+	
+	@Id
+	@Column(name="ID")
+	private Integer id;
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(iso = ISO.DATE)
+	@Column(name = "FECHA")
+	private Date fecha;
+	
+	@OneToOne
+	@JoinColumn(name="IDCLIENTE")
+	private Cliente idCliente;
+	
+	@OneToOne
+	@JoinColumn(name="IDEMPLEADO")
+	private Empleado idEmpleado;
+	
+	@OneToOne
+	@JoinColumn(name="IDCOCHE")
+	private Coche idCoche;
+	
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public Cliente getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Cliente idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	public Empleado getIdEmpleado() {
+		return idEmpleado;
+	}
+
+	public void setIdEmpleado(Empleado idEmpleado) {
+		this.idEmpleado = idEmpleado;
+	}
+
+	public Coche getIdCoche() {
+		return idCoche;
+	}
+
+	public void setIdCoche(Coche idCoche) {
+		this.idCoche = idCoche;
+	}
+
+	@Override
+	public String toString() {
+		return "Venta [fecha=" + fecha + ", idCliente=" + idCliente + ", idEmpleado=" + idEmpleado + ", idCoche="
+				+ idCoche + "]";
+	}
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
 //package com.example.demo.entities;
 //
 //import java.util.Date;
