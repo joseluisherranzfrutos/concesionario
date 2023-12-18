@@ -41,11 +41,13 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `venta` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `idCliente` int DEFAULT NULL,
   `idEmpleado` int DEFAULT NULL,
   `idCoche` varchar(7) DEFAULT NULL,
   `monto` double DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `ventaClienteId_idx` (`idCliente`),
   KEY `ventaEmpleadoId_idx` (`idEmpleado`),
   KEY `ventaCocheId_idx` (`idCoche`),
