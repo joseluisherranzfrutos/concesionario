@@ -8,8 +8,8 @@ INSERT INTO concesionario.empleado (ID, NOMBRE, DIRECCION, EMAIL, TELEFONO, SUEL
 
 INSERT INTO concesionario.coche (`matricula`, `marca`, `modelo`, `color`, `precio`, `estado`, `anyo`)
 VALUES
-  ('ABC1234', 'Toyota', 'Camry', 'Rojo', 25000.50, 0, 2022),
-  ('XYZ5678', 'Honda', 'Civic', 'Azul', 22000.75, 0, 2021),
+  ('ABC1234', 'Toyota', 'Camry', 'Rojo', 25000.50, 1, 2022),
+  ('XYZ5678', 'Honda', 'Civic', 'Azul', 22000.75, 1, 2021),
   ('DEF9876', 'Ford', 'Mondeo', 'Negro', 20000.00, 0, 2020);
   
   INSERT INTO concesionario.venta (`fecha`,`idCliente`,`idEmpleado`,`idCoche`,`monto`) VALUES 
