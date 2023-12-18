@@ -7,14 +7,20 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.example.demo.entities.Coche;
 public interface CocheRepository extends JpaRepository<Coche, String>{
-	//@Query(value="SELECT c FROM Coche c WHERE c.estado LIKE true")
-	@Query
+	
+	
 	List<Coche> findByEstadoTrue();
 	
-	@Query
+	
 	List<Coche> findByEstadoFalse();
 
 
 	List<Coche> findByMarca(String marca);
+	
+	
+	@Query(value="SELECT c FROM Coche c WHERE c.marca=%:marca% AND c.modelo=%:modelo%")
+	List<Coche> findByMarcaModelo(String marca,String modelo);
 
+//	@Query(value="SELECT c FROM Coche c WHERE c.marca=%:marca")
+//	List<Coche> findByMarcaModelo(String marca,String modelo);
 }
