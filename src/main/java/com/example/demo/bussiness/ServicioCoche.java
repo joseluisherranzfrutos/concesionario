@@ -18,5 +18,7 @@ public interface ServicioCoche {
 	List<Coche> findByMarca(String marca) throws ServicioException;
 
 	List<Coche> findByMarcaModelo(String marca, String modelo) throws ServicioException;
+	
+	List<Coche> findByModelo(String modelo);
 
 }

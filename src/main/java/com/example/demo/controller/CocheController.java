@@ -25,7 +25,6 @@ public class CocheController {
 	
 	@GetMapping
 	public List<Coche> list() throws ServicioException{
-		
 		return servicio.listCoches();
 	}
 	
