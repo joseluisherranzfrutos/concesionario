@@ -21,6 +21,6 @@ public interface ServicioCoche {
 	
 	
 	//Filtro coches por empleado
-//	List<Coche> listaCochesEmpleado(String nombre) throws ServicioException;
+	List<Coche> listaCochesEmpleado(String nombre) throws ServicioException;
 	
 }

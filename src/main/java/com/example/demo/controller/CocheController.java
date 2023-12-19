@@ -53,9 +53,9 @@ public class CocheController {
 	}
 	
 	//Filtro coches por empleado
-//	@GetMapping(value="/listaCochesEmpleado")
-//	public List<Coche> cochesEmpleado(@Param(value= "nombre") String nombre) throws ServicioException{
-//		return servicio.listaCochesEmpleado(nombre);
-//	}
+	@GetMapping(value="/listaCochesEmpleado")
+	public List<Coche> cochesEmpleado(@Param(value= "nombre") String nombre) throws ServicioException{
+		return servicio.listaCochesEmpleado(nombre);
+	}
 	
 }

@@ -11,6 +11,7 @@ import com.example.demo.common.exceptions.CodeError;
 import com.example.demo.common.exceptions.ServicioException;
 import com.example.demo.entities.Coche;
 import com.example.demo.repositories.CocheRepository;
+import com.example.demo.repositories.VentaRepository;
 
 @Service
 public class ServicioCocheImpl implements ServicioCoche {
@@ -19,6 +20,9 @@ public class ServicioCocheImpl implements ServicioCoche {
 	
 	@Autowired
 	CocheRepository repository;
+	
+	@Autowired
+	VentaRepository ventaRepository;
 	
 	@Override
 	public List<Coche> listCoches() throws ServicioException{
@@ -123,20 +127,19 @@ public class ServicioCocheImpl implements ServicioCoche {
 	
 	
 	//Filtro coches por empleado
-//	@Override
-//	public List<Coche> listaCochesEmpleado(String nombre) throws ServicioException {
-//		log.info("[listCochesEmpleado]");
-//		
-//		List<Coche> coches;
-//		
-//		try {
-//			coches= repository.listaCochesEmpleado(nombre);
-//			
-//		}catch(Exception e) {
-//			log.error("Exception", e);
-//			throw new ServicioException(CodeError.ERROR_GENERAL,e);
-//		}
-//		return coches;
-//	}
-//	
+	@Override
+	public List<Coche> listaCochesEmpleado(String nombre) throws ServicioException {
+		log.info("[listCochesEmpleado]");
+		
+		List<Coche> coches;
+		
+		try {
+			coches= ventaRepository.listaCochesEmpleado(nombre);
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return coches;
+	}
+	
 }
