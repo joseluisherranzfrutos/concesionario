@@ -13,7 +13,6 @@ import com.example.demo.bussiness.ServicioCliente;
 import com.example.demo.common.exceptions.ServicioException;
 import com.example.demo.entities.Cliente;
 
-
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
