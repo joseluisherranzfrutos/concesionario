@@ -27,6 +27,7 @@ public class Cliente {
 	private String telefono;
 	@Column(name="CATEGORIA")
 	private String categoria;
+	
 	public Integer getId() {
 		return id;
 	}
