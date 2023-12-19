@@ -37,8 +37,21 @@ public class ServicioClienteImpl implements ServicioCliente {
 		return clientes;
 		
 	}
-
-
+	@Override
+	public Cliente grabarCliente(Cliente cliente) throws ServicioException {
+		log.info("[grabarCliente]");
+		log.info("[empleado: "+cliente.toString()+"]");
+		
+		try{
+			cliente =repository.save(cliente);
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return cliente;
+		
+	}
+	
 
 
 	

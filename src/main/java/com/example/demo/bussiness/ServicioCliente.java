@@ -9,6 +9,6 @@ public interface ServicioCliente {
 
 	List<Cliente> listClientes() throws ServicioException;
 
-	
+	Cliente grabarCliente(Cliente cliente) throws ServicioException;
 
 }
