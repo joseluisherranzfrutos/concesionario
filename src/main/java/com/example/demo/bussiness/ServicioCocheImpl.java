@@ -86,7 +86,7 @@ public class ServicioCocheImpl implements ServicioCoche {
 
 	@Override
 	public List<Coche> findByMarca(String marca) throws ServicioException {
-		log.info("[listBuscarMarca]");
+		log.info("[findByMarca]");
 		
 		List<Coche> coches;
 		
@@ -102,7 +102,7 @@ public class ServicioCocheImpl implements ServicioCoche {
 
 	@Override
 	public List<Coche> findByMarcaModelo(String marca,String modelo) throws ServicioException {
-		log.info("[listBuscarMarcaModelo]");
+		log.info("[findByMarcaModelo]");
 		
 		List<Coche> coches;
 		try {
