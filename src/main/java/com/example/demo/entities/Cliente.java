@@ -2,6 +2,8 @@ package com.example.demo.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -10,6 +12,7 @@ import jakarta.persistence.Table;
 public class Cliente {
 	
 	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="ID")
 	private Integer id;
 	@Column(name="NIF")
@@ -18,6 +21,8 @@ public class Cliente {
 	private String nombre;
 	@Column(name="DIRECCION")
 	private String direccion;
+	@Column(name="CIUDAD")
+	private String ciudad;
 	@Column(name="TELEFONO")
 	private String telefono;
 	@Column(name="CATEGORIA")
