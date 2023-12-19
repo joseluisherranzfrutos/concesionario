@@ -27,6 +27,7 @@ public class Cliente {
 	private String telefono;
 	@Column(name="CATEGORIA")
 	private String categoria;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -51,6 +52,12 @@ public class Cliente {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+	public String getCiudad() {
+		return ciudad;
+	}
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
 	public String getTelefono() {
 		return telefono;
 	}
@@ -66,8 +73,8 @@ public class Cliente {
 	
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nif=" + nif + ", nombre=" + nombre + ", direccion=" + direccion + ", telefono="
-				+ telefono + ", categoria=" + categoria + "]";
+		return "Cliente [id=" + id + ", nif=" + nif + ", nombre=" + nombre + ", direccion=" + direccion + ", ciudad="
+				+ ciudad + ", telefono=" + telefono + ", categoria=" + categoria + "]";
 	}
 	
 	
