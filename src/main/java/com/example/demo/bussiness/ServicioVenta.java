@@ -12,4 +12,6 @@ public interface ServicioVenta {
 
 	Venta grabarVenta(VentaDTO ventaDTO) throws ServicioException;
 
+	Double beneficios() throws ServicioException;
+
 }

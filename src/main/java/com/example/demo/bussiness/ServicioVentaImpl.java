@@ -93,5 +93,15 @@ public class ServicioVentaImpl implements ServicioVenta{
 			
 			return venta;
 		}
+		
+		@Override
+		public Double beneficios() throws ServicioException{
+			List<Venta> ventas = listVentas();
+			Double beneficios=0D;
+			for (Venta venta : ventas) {
+				beneficios += venta.getMonto()-venta.getCoche().getPrecio();
+			}
+			return beneficios;
+		}
 
 }
