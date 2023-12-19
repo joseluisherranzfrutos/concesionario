@@ -19,7 +19,7 @@ CREATE TABLE `coche` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `empleado` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `direccion` varchar(150) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
