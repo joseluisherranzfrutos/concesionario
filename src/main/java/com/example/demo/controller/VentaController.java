@@ -35,12 +35,7 @@ public class VentaController {
 	
 	@GetMapping(value="/beneficios")
 	public Double beneficios() throws ServicioException{
-		List<Venta> ventas = servicio.listVentas();
-		Double beneficios=0D;
-		for (Venta venta : ventas) {
-			beneficios += venta.getMonto()-venta.getCoche().getPrecio();
-		}
-		return beneficios;
+		return servicio.beneficios();
 	}
 	
 }
