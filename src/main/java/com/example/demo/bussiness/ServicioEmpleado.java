@@ -9,5 +9,7 @@ public interface ServicioEmpleado {
 	List<Empleado> listEmpleados() throws ServicioException;
 
 	Empleado grabarEmpleado(Empleado empleado) throws ServicioException;
+
+	void eliminarEmpleado(Integer id) throws ServicioException;
 	
 }

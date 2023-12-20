@@ -53,12 +53,29 @@ Logger log = LoggerFactory.getLogger(ServicioEmpleadoImpl.class);
 
 	}
 
+	@Override
+	public void eliminarEmpleado(Integer id) throws ServicioException{
+		log.info("[eliminarEmpleado]");
+		log.debug("[id: "+id+"]");
+		
+
+		try {
+		repository.deleteById(id);
+	}catch(Exception e) {
+		log.error("Exception", e);
+		throw new ServicioException(CodeError.ERROR_GENERAL,e);
+	}
+	
+}
+		
+	}
+
 	
 	
 
 	
 	
-	}
+	
 
 	
 	
