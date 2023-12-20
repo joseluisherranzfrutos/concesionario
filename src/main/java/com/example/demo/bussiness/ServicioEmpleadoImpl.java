@@ -1,3 +1,4 @@
+
 package com.example.demo.bussiness;
 
 import java.util.List;
@@ -36,4 +37,38 @@ Logger log = LoggerFactory.getLogger(ServicioEmpleadoImpl.class);
 		return empleados;
 		
 	}
-}
+
+	@Override
+	public Empleado grabarEmpleado(Empleado empleado) throws ServicioException {
+		log.info("[grabarEmpleado]");
+		log.info("[empleado: "+empleado.toString()+"]");
+		
+		try{
+			empleado =repository.save(empleado);
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return empleado;
+
+	}
+
+	
+	
+
+	
+	
+	}
+
+	
+	
+
+	
+	
+
+
+	
+
+	
+	
+
