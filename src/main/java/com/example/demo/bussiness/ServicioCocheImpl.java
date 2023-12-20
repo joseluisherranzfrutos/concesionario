@@ -119,5 +119,11 @@ public class ServicioCocheImpl implements ServicioCoche {
 			throw new ServicioException(CodeError.ERROR_GENERAL,e);
 		}
 		return coches;
+	}
+
+	@Override
+	public Coche modificarCoche(Coche coche) throws ServicioException {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 }
