@@ -40,7 +40,6 @@ public class VentaController {
 		return servicio.beneficios();
 	}
 	
-	//Filtro coches por empleado
 	@GetMapping(value="/listaCochesEmpleado")
 	public List<Coche> cochesEmpleado(@Param(value= "nombre") String nombre) throws ServicioException{
 		return servicio.listaCochesEmpleado(nombre);

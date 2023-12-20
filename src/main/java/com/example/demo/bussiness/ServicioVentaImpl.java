@@ -101,7 +101,6 @@ public class ServicioVentaImpl implements ServicioVenta{
 			return beneficios;
 		}
 		
-		//Filtro coches por empleado
 		@Override
 		public List<Coche> listaCochesEmpleado(String nombre) throws ServicioException {
 			log.info("[listCochesEmpleado]");
