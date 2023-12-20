@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.demo.common.exceptions.ServicioException;
 import com.example.demo.dto.VentaDTO;
+import com.example.demo.entities.Coche;
 import com.example.demo.entities.Venta;
 
 public interface ServicioVenta {
@@ -13,5 +14,7 @@ public interface ServicioVenta {
 	Venta grabarVenta(VentaDTO ventaDTO) throws ServicioException;
 
 	Double beneficios() throws ServicioException;
+
+	List<Coche> listaCochesEmpleado(String nombre) throws ServicioException;
 
 }

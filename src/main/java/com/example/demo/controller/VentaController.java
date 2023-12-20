@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.bussiness.ServicioVenta;
 import com.example.demo.common.exceptions.ServicioException;
 import com.example.demo.dto.VentaDTO;
+import com.example.demo.entities.Coche;
 import com.example.demo.entities.Venta;
 
 @RestController
@@ -38,4 +40,9 @@ public class VentaController {
 		return servicio.beneficios();
 	}
 	
+	//Filtro coches por empleado
+	@GetMapping(value="/listaCochesEmpleado")
+	public List<Coche> cochesEmpleado(@Param(value= "nombre") String nombre) throws ServicioException{
+		return servicio.listaCochesEmpleado(nombre);
+	}
 }
