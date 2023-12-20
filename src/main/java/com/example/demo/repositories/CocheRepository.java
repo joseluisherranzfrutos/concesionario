@@ -21,14 +21,4 @@ public interface CocheRepository extends JpaRepository<Coche, String>{
 
 	List<Coche> findByMatricula(String matricula);
 	
-//	@Query(value="UPDATE coche SET estado=true WHERE matricula = %:matricula%")
-//	void setEstadoTrue(String matricula);
-	
-//	@Query(value="SELECT c FROM Coche c WHERE c.marca=%:marca% AND c.modelo=%:modelo%")
-//	List<Coche> findByMarcaAndModelo(String marca,String modelo);
-	
-	//Filtro coches por empleado
-//	@Query(value="SELECT c FROM Coche c, Venta v, Empleado e WHERE c.matricula=v.venta.idCoche AND"
-//		+ "v.venta.idEmpleado=e.empleado.id AND e.empleado.nombre=:nombre")
-//	List<Coche> listaCochesEmpleado(String nombre);
 }

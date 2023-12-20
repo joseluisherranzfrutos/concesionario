@@ -119,24 +119,5 @@ public class ServicioCocheImpl implements ServicioCoche {
 			throw new ServicioException(CodeError.ERROR_GENERAL,e);
 		}
 		return coches;
-	}
-	
-	
-	//Filtro coches por empleado
-//	@Override
-//	public List<Coche> listaCochesEmpleado(String nombre) throws ServicioException {
-//		log.info("[listCochesEmpleado]");
-//		
-//		List<Coche> coches;
-//		
-//		try {
-//			coches= repository.listaCochesEmpleado(nombre);
-//			
-//		}catch(Exception e) {
-//			log.error("Exception", e);
-//			throw new ServicioException(CodeError.ERROR_GENERAL,e);
-//		}
-//		return coches;
-//	}
-//	
+	}	
 }
