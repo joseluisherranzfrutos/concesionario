@@ -80,8 +80,6 @@ public class ServicioVentaImpl implements ServicioVenta{
 				cocheOp.get().setEstado(true);
 				cocheRepository.save(cocheOp.get());
 				
-				//cocheRepository.setEstadoTrue(cocheOp.get().getMatricula());
-				
 				ventaRepository.save(venta);
 			}catch(ServicioException se) {
 				log.error("ServicioException", se);
