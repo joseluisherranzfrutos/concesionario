@@ -51,11 +51,4 @@ public class CocheController {
 	public Coche create(@RequestBody Coche coche) throws ServicioException {
 		return servicio.grabarCoche(coche);
 	}
-	
-	//Filtro coches por empleado
-//	@GetMapping(value="/listaCochesEmpleado")
-//	public List<Coche> cochesEmpleado(@Param(value= "nombre") String nombre) throws ServicioException{
-//		return servicio.listaCochesEmpleado(nombre);
-//	}
-//	
 }

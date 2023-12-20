@@ -41,7 +41,7 @@ public class VentaController {
 	}
 	
 	@GetMapping(value="/listaCochesEmpleado")
-	public List<Coche> cochesEmpleado(@Param(value= "nombre") String nombre) throws ServicioException{
+	public List<Coche> listaCochesEmpleado(@Param(value= "nombre") String nombre) throws ServicioException{
 		return servicio.listaCochesEmpleado(nombre);
 	}
 }
