@@ -19,6 +19,7 @@ public interface ServicioCoche {
 
 	List<Coche> findByMarcaModelo(String marca, String modelo) throws ServicioException;
 
-	Coche modificarCoche(Coche coche) throws ServicioException;
+	void eliminarCoche(String matricula) throws ServicioException;
+
 	
 }

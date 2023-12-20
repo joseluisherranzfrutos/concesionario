@@ -122,8 +122,17 @@ public class ServicioCocheImpl implements ServicioCoche {
 	}
 
 	@Override
-	public Coche modificarCoche(Coche coche) throws ServicioException {
-		// TODO Auto-generated method stub
-		return null;
-	}	
+	public void eliminarCoche(String matricula) throws ServicioException{
+		log.info("[eliminarCoche]");
+		log.debug("[matricula: "+matricula+"]");
+		
+			try {
+			repository.deleteById(matricula);
+			
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		
+	}
 }
