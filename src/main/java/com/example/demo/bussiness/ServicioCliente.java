@@ -11,4 +11,10 @@ public interface ServicioCliente {
 
 	Cliente grabarCliente(Cliente cliente) throws ServicioException;
 
+	Cliente conseguirCliente(Integer id) throws ServicioException;
+
+	List<Cliente> listEstadoAlta() throws ServicioException;
+
+	List<Cliente> listEstadoBaja() throws ServicioException;
+
 }

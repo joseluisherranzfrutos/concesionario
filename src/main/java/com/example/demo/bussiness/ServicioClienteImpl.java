@@ -1,6 +1,7 @@
 package com.example.demo.bussiness;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,9 +52,56 @@ public class ServicioClienteImpl implements ServicioCliente {
 		return cliente;
 		
 	}
-	
-
-
+	@Override
+	public Cliente conseguirCliente(Integer id) throws ServicioException {
+		log.info("[conseguirCliente]");
+		log.debug("[idCliente: "+id+"]");
+		
+		Cliente cliente;
+		
+		try {
+			Optional<Cliente> clienteOp= repository.findById(id);
+			if(!clienteOp.isPresent()) throw new ServicioException(CodeError.CLIENTE_NOT_FOUND);
+			cliente= clienteOp.get();
+		}catch(ServicioException se) {
+			log.error("ServicioException", se);
+			throw se;
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return cliente;
+	}
+	@Override
+	public List<Cliente> listEstadoAlta() throws ServicioException {
+		log.info("[listEstadoAlta]");
+		
+		List<Cliente> clientes;
+		
+		try {
+			clientes = repository.findByEstadoAltaTrue();
+			
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return clientes;
+	}
+	@Override
+	public List<Cliente> listEstadoBaja() throws ServicioException {
+log.info("[listEstadoAlta]");
+		
+		List<Cliente> clientes;
+		
+		try {
+			clientes = repository.findByEstadoAltaFalse();
+			
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return clientes;
+	}
 	
 
 }

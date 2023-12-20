@@ -29,6 +29,9 @@ public class Cliente {
 	private String categoria;
 	@Column(name="NVENTAS")
 	private Integer nVentas;
+	@Column(name="ESTADOALTA")
+	private Boolean estadoAlta;
+	
 	
 	public Integer getId() {
 		return id;
@@ -78,9 +81,17 @@ public class Cliente {
 	public void setnVentas(Integer nVentas) {
 		this.nVentas = nVentas;
 	}
+	public Boolean getEstadoAlta() {
+		return estadoAlta;
+	}
+	public void setEstadoAlta(Boolean estadoAlta) {
+		this.estadoAlta = estadoAlta;
+	}
+	
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nif=" + nif + ", nombre=" + nombre + ", direccion=" + direccion + ", ciudad="
-				+ ciudad + ", telefono=" + telefono + ", categoria=" + categoria + ", nVentas=" + nVentas + "]";
+				+ ciudad + ", telefono=" + telefono + ", categoria=" + categoria + ", nVentas=" + nVentas
+				+ ", estadoAlta=" + estadoAlta + "]";
 	}
 }
