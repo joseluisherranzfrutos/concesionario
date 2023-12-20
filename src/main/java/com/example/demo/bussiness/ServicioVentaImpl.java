@@ -50,7 +50,6 @@ public class ServicioVentaImpl implements ServicioVenta{
 				throw new ServicioException(CodeError.ERROR_GENERAL,e);
 			}
 			return ventas;
-			
 		}
 
 		@Override
