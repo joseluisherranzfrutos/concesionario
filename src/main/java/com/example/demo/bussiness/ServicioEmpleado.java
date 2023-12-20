@@ -7,4 +7,7 @@ import com.example.demo.entities.Empleado;
 
 public interface ServicioEmpleado {
 	List<Empleado> listEmpleados() throws ServicioException;
+
+	Empleado grabarEmpleado(Empleado empleado) throws ServicioException;
+	
 }
