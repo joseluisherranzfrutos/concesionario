@@ -1,11 +1,8 @@
-CREATE DATABASE IF NOT EXISTS concesionario; 
+DROP DATABASE IF EXISTS concesionario;
+
+CREATE DATABASE concesionario; 
 
 USE concesionario;
-
-DROP TABLE IF EXISTS venta;
-DROP TABLE IF EXISTS coche;
-DROP TABLE IF EXISTS empleado;
-DROP TABLE IF EXISTS cliente;
 
 CREATE TABLE `coche` (
   `matricula` varchar(7) NOT NULL,
@@ -37,6 +34,7 @@ CREATE TABLE `cliente` (
   `ciudad` varchar(50) DEFAULT NULL,
   `telefono` varchar(9) DEFAULT NULL,
   `categoria` varchar(10) DEFAULT NULL,
+  `nVentas` INT  DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

@@ -19,6 +19,7 @@ import com.example.demo.repositories.ClienteRepository;
 import com.example.demo.repositories.CocheRepository;
 import com.example.demo.repositories.EmpleadoRepository;
 import com.example.demo.repositories.VentaRepository;
+import com.example.demo.util.Constantes;
 
 @Service
 public class ServicioVentaImpl implements ServicioVenta{
@@ -55,7 +56,7 @@ public class ServicioVentaImpl implements ServicioVenta{
 
 		@Override
 		public Venta grabarVenta(VentaDTO ventaDTO) throws ServicioException {
-			
+			log.info("[grabarVenta]");
 			Venta venta = new Venta();
 			
 			try {
@@ -64,6 +65,13 @@ public class ServicioVentaImpl implements ServicioVenta{
 				clienteOp = clienteRepository.findById(ventaDTO.getIdCliente());
 				if(!clienteOp.isPresent()) throw new ServicioException(CodeError.CLIENTE_NOT_FOUND);
 				venta.setCliente(clienteOp.get());
+				int nVentas = clienteOp.get().getnVentas()+1;
+				clienteOp.get().setnVentas(nVentas);
+				if (nVentas>1 && clienteOp.get().getCategoria().equals(Constantes.PLATA))
+					clienteOp.get().setCategoria(Constantes.ORO);
+					
+				clienteRepository.save(clienteOp.get());
+				
 				
 				Optional<Empleado> empleadoOp;
 				empleadoOp = empleadoRepository.findById(ventaDTO.getIdEmpleado());
@@ -80,9 +88,8 @@ public class ServicioVentaImpl implements ServicioVenta{
 				cocheOp.get().setEstado(true);
 				cocheRepository.save(cocheOp.get());
 				
-				//cocheRepository.setEstadoTrue(cocheOp.get().getMatricula());
-				
 				ventaRepository.save(venta);
+				log.info("[venta: "+venta.toString()+"]");
 			}catch(ServicioException se) {
 				log.error("ServicioException", se);
 				throw se;
@@ -96,6 +103,7 @@ public class ServicioVentaImpl implements ServicioVenta{
 		
 		@Override
 		public Double beneficios() throws ServicioException{
+			log.info("[beneficios]");
 			List<Venta> ventas = listVentas();
 			Double beneficios=0D;
 			for (Venta venta : ventas) {

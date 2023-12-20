@@ -27,6 +27,8 @@ public class Cliente {
 	private String telefono;
 	@Column(name="CATEGORIA")
 	private String categoria;
+	@Column(name="NVENTAS")
+	private Integer nVentas;
 	
 	public Integer getId() {
 		return id;
@@ -70,13 +72,15 @@ public class Cliente {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-	
+	public Integer getnVentas() {
+		return nVentas;
+	}
+	public void setnVentas(Integer nVentas) {
+		this.nVentas = nVentas;
+	}
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nif=" + nif + ", nombre=" + nombre + ", direccion=" + direccion + ", ciudad="
-				+ ciudad + ", telefono=" + telefono + ", categoria=" + categoria + "]";
+				+ ciudad + ", telefono=" + telefono + ", categoria=" + categoria + ", nVentas=" + nVentas + "]";
 	}
-	
-	
-	
 }
