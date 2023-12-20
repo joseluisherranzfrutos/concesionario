@@ -119,5 +119,4 @@ public class ServicioVentaImpl implements ServicioVenta{
 			}
 			return coches;
 		}
-
 }
