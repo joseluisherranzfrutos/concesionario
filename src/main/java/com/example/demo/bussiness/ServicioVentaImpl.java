@@ -1,5 +1,6 @@
 package com.example.demo.bussiness;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -84,7 +85,7 @@ public class ServicioVentaImpl implements ServicioVenta{
 			venta.setCoche(cocheOp.get());
 			
 			venta.setMonto(ventaDTO.getMonto());
-			venta.setFecha(ventaDTO.getFecha());
+			venta.setFecha(java.sql.Date.valueOf(LocalDate.now()));
 			cocheOp.get().setEstado(true);
 			cocheRepository.save(cocheOp.get());
 			
@@ -97,8 +98,9 @@ public class ServicioVentaImpl implements ServicioVenta{
 			log.error("Exception", e);
 			throw new Exception(CodeError.ERROR_GENERAL,e);
 		}
+		Optional<Venta> ventaAlmacenada =ventaRepository.findById(venta.getId());
 		
-		return venta;
+		return ventaAlmacenada.get();
 	}
 	
 	@Override
