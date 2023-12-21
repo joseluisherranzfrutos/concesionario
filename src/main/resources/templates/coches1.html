@@ -1,0 +1,19 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Coches</title>
+</head>
+<body>
+<h2>Coches</h2>
+<div>
+<ul>
+<li th:each="coche:${coches}">
+ 	<span th:text="${coche.matricula}"></span>
+ </li>
+</ul>
+</div>
+</body>
+</html>
