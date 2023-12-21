@@ -21,7 +21,6 @@ public class ServicioClienteImpl implements ServicioCliente {
 	@Autowired
 	ClienteRepository repository;
 	
-	
 	@Override
 	public List<Cliente> listClientes() throws ServicioException{
 		log.info("[listClientes]");
@@ -89,7 +88,7 @@ public class ServicioClienteImpl implements ServicioCliente {
 	}
 	@Override
 	public List<Cliente> listEstadoBaja() throws ServicioException {
-log.info("[listEstadoAlta]");
+		log.info("[listEstadoAlta]");
 		
 		List<Cliente> clientes;
 		
@@ -102,6 +101,5 @@ log.info("[listEstadoAlta]");
 		}
 		return clientes;
 	}
-	
 
 }
