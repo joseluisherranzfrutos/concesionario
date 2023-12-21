@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" th:href="@{estilos1.css}" />
+<head>
+    <meta charset="UTF-8">
+    <title>Empleados</title>
+</head>
+<body>
+    <h2>Empleados</h2>
+    <div>
+        <ul>
+            
+            <li th:each="empleado : ${empleados}">
+                
+                <p>Nombre: <span th:text="${empleado.nombre}"></span></p>
+                <p>Direccion: <span th:text="${empleado.direccion}"></span></p>
+                <p>Email: <span th:text="${empleado.email}"></span></p>
+                <p>Telefono: <span th:text="${empleado.telefono}"></span></p>
+                <p>Sueldo: <span th:text="${empleado.sueldo}"></span></p>
+                <p>Comision: <span th:text="${empleado.comision}"></span></p>
+               
+            </li>
+        </ul>
+    </div>
+    <h2>Crear Empleado</h2>
+    <div>
+        
+        <form action="@{/empleadosTh}" th:action="@{/empleadosTh}" method="post">
+           
+            <p>Nombre: <input type="text" name="nombre" /></p>
+            <p>Direccion: <input type="text" name="direccion" /></p>
+            <p>Email: <input type="text" name="email" /></p>
+            <p>Telefono: <input type="text" name="telefono" /></p>
+            <p>Sueldo: <input type="text" name="sueldo" /></p>
+            <p>Comision: <input type="text" name="comision" /></p>
+           
+            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        </form>
+    </div>
+</body>
+</html>

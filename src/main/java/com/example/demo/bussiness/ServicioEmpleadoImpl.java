@@ -67,6 +67,12 @@ Logger log = LoggerFactory.getLogger(ServicioEmpleadoImpl.class);
 	}
 	
 }
+
+	@Override
+	public Empleado conseguirEmpleado(Integer id) throws ServicioException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 		
 	}
 
