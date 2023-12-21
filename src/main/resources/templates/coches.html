@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Coches</title>
+</head>
+<body>
+<h2>Coches</h2>
+<div>
+<ul>
+<li th:each="coche:${coches}">
+ 	<span th:text="${coche.matricula}"></span>
+ 	<span th:text="${coche.marca}"></span>
+ 	<span th:text="${coche.modelo}"></span>
+ 	<span th:text="${coche.color}"></span>
+ 	<span th:text="${coche.precio}"></span>€
+ 	<span th:text="${coche.anyo}"></span>
+ </li>
+</ul>
+</div>
+<h2>Crear Coche</h2>
+<div>
+<form action="#" th:action="@{/cochesTh}" method="post">
+    	<p>Matricula: <input type="text" name="matricula" /></p>
+        <p>Marca: <input type="text" name="marca" /></p>
+        <p>Modelo: <input type="text" name="modelo" /></p>
+        <p>Color: <input type="text" name="color" /></p>
+        <p>Precio: <input type="text" name="precio" /></p>
+        <p>Año: <input type="text" name="anyo" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+</body>
+</html>
