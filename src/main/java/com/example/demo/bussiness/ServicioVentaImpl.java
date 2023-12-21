@@ -19,7 +19,7 @@ import com.example.demo.repositories.ClienteRepository;
 import com.example.demo.repositories.CocheRepository;
 import com.example.demo.repositories.EmpleadoRepository;
 import com.example.demo.repositories.VentaRepository;
-import com.example.demo.util.Constantes;
+import com.exampled.demo.common.Constantes;
 
 @Service
 public class ServicioVentaImpl implements ServicioVenta{
@@ -55,7 +55,7 @@ public class ServicioVentaImpl implements ServicioVenta{
 	}
 
 	@Override
-	public Venta grabarVenta(VentaDTO ventaDTO) throws ServicioException {
+	public Venta grabarVenta(VentaDTO ventaDTO) throws Exception {
 		log.info("[grabarVenta]");
 		Venta venta = new Venta();
 		
@@ -79,8 +79,7 @@ public class ServicioVentaImpl implements ServicioVenta{
 			
 			Optional<Coche> cocheOp;
 			cocheOp = cocheRepository.findById(ventaDTO.getIdCoche());
-			if(!cocheOp.isPresent()) //throw new Exception("prueba");
-				new ServicioException(CodeError.COCHE_NOT_FOUND);
+			if(!cocheOp.isPresent()) throw new ServicioException(CodeError.COCHE_NOT_FOUND);
 			if (cocheOp.get().getEstado()) throw new ServicioException(CodeError.COCHE_ALREADY_SOLD);
 			venta.setCoche(cocheOp.get());
 			
@@ -93,10 +92,10 @@ public class ServicioVentaImpl implements ServicioVenta{
 			log.info("[venta: "+venta.toString()+"]");
 		}catch(ServicioException se) {
 			log.error("ServicioException", se);
-			throw se;
+			throw new Exception(se.getCodigo());
 		}catch(Exception e) {
 			log.error("Exception", e);
-			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+			throw new Exception(CodeError.ERROR_GENERAL,e);
 		}
 		
 		return venta;

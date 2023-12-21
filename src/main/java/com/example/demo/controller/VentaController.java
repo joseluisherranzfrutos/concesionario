@@ -30,7 +30,7 @@ public class VentaController {
 	}
 	
 	@PostMapping
-	public Venta create(@RequestBody VentaDTO venta) throws ServicioException {
+	public Venta create(@RequestBody VentaDTO venta) throws Exception {
 		
 		return servicio.grabarVenta(venta);
 	}

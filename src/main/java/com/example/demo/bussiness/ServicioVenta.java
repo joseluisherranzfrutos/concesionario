@@ -11,7 +11,7 @@ public interface ServicioVenta {
 	
 	List<Venta> listVentas() throws ServicioException;
 
-	Venta grabarVenta(VentaDTO ventaDTO) throws ServicioException;
+	Venta grabarVenta(VentaDTO ventaDTO) throws Exception;
 
 	Double beneficios() throws ServicioException;
 
