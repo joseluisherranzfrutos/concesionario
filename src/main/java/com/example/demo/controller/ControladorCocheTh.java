@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.bussiness.ServicioCoche;
@@ -23,7 +25,18 @@ public class ControladorCocheTh {
 		List<Coche> coches = servicio.listCoches();
 		
 		model.addAttribute("coches", coches);	
-		return "coches1";
+		return "coches";
 	}
 
+	@PostMapping
+	public String grabarDepartamento(@ModelAttribute Coche coche,Model model) throws Exception {
+		
+		coche.setEstado(true);
+		coche=servicio.grabarCoche(coche);
+		
+		List<Coche> coches = servicio.listCoches();
+		
+		model.addAttribute("coches", coches);
+		return "coches";
+	}
 }
