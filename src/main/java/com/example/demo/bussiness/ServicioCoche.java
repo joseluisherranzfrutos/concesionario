@@ -21,5 +21,7 @@ public interface ServicioCoche {
 
 	void eliminarCoche(String matricula) throws ServicioException;
 
+	Coche conseguirCoche(String matricula) throws ServicioException;
+
 	
 }

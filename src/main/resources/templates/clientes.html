@@ -36,12 +36,10 @@
       <th scope="col">Compras</th>
       <th scope="col">Estado Alta</th>
       <th scope="col"></th>
-     
     </tr>
   </thead>
   <tbody>
     <tr th:each="cliente:${clientes}">
-      
       <td th:text="${cliente.id}" hidden></td>
       <td th:text="${cliente.nif}"></td>
       <td th:text="${cliente.nombre}"></td>
@@ -52,7 +50,6 @@
       <td th:text="${cliente.nVentas}" ></td>
       <td th:text="${cliente.estadoAlta}"></td>	
       <td><a th:href="@{'/clientesTh/modificar/'+${cliente.id}}"><img src="/images/edit.png" width=30px height=30px></a></td>	
-      
     </tr>
     
   </tbody>

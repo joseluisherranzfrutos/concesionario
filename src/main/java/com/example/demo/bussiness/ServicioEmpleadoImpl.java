@@ -13,62 +13,42 @@ import com.example.demo.common.exceptions.ServicioException;
 import com.example.demo.entities.Empleado;
 import com.example.demo.repositories.EmpleadoRepository;
 
-
 @Service
-public class ServicioEmpleadoImpl implements ServicioEmpleado{
+public class ServicioEmpleadoImpl implements ServicioEmpleado {
 
-Logger log = LoggerFactory.getLogger(ServicioEmpleadoImpl.class);
-	
+	Logger log = LoggerFactory.getLogger(ServicioEmpleadoImpl.class);
+
 	@Autowired
 	EmpleadoRepository repository;
-	
+
 	@Override
-	public List<Empleado> listEmpleados() throws ServicioException{
+	public List<Empleado> listEmpleados() throws ServicioException {
 		log.info("[listEmpleados]");
-		
+
 		List<Empleado> empleados;
 		try {
-			empleados= repository.findAll();
-			
-		}catch(Exception e) {
+			empleados = repository.findAll();
+
+		} catch (Exception e) {
 			log.error("Exception", e);
-			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+			throw new ServicioException(CodeError.ERROR_GENERAL, e);
 		}
 		return empleados;
-		
+
 	}
 
 	@Override
 	public Empleado grabarEmpleado(Empleado empleado) throws ServicioException {
 		log.info("[grabarEmpleado]");
-		log.info("[empleado: "+empleado.toString()+"]");
-		
-		try{
-			empleado =repository.save(empleado);
-		}catch(Exception e) {
+		log.info("[empleado: " + empleado.toString() + "]");
+
+		try {
+			empleado = repository.save(empleado);
+		} catch (Exception e) {
 			log.error("Exception", e);
-			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+			throw new ServicioException(CodeError.ERROR_GENERAL, e);
 		}
 		return empleado;
-
 	}
 
-	
-	
-
-	
-	
-	}
-
-	
-	
-
-	
-	
-
-
-	
-
-	
-	
-
+}
