@@ -8,6 +8,7 @@
 	<div id="formulario">
 	<form th:action="@{/clientesTh}" th:object="${cliente}" method="post">
 		<div class="form-group">
+			<input type="hidden" class="form-control" th:field="*{id}" /></label>
 			<label>DNI <input type="text" class="form-control" th:field="*{nif}" /></label>
 	    	<label>Nombre <input type="text" class="form-control"th:field="*{nombre}" /></label>
 	        <label>Dirección <input type="text" class="form-control"th:field="*{direccion}" /></label>
