@@ -9,13 +9,12 @@
 <body>
 
 <div>
-	<p><a th:href="@{/clientesTh/crear}"><button>Nuevo cliente</button></a></p>
+	<p><a th:href="@{/clientesTh/crear}"><img src="/images/add.png" width=30px height=30px></a></p>
 </div>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Id</th>
       <th scope="col">DNI</th>
       <th scope="col">Nombre</th>
       <th scope="col">Dirección</th>
@@ -31,16 +30,16 @@
   <tbody>
     <tr th:each="cliente:${clientes}">
       
-      <td th:text="${cliente.id}"></td>
+      <td th:text="${cliente.id}" hidden></td>
       <td th:text="${cliente.nif}"></td>
       <td th:text="${cliente.nombre}"></td>
       <td th:text="${cliente.direccion}"></td>
       <td th:text="${cliente.ciudad}"></td>
       <td th:text="${cliente.telefono}"></td>
       <td th:text="${cliente.categoria}"></td>
-      <td th:text="${cliente.nVentas}"></td>
+      <td th:text="${cliente.nVentas}" ></td>
       <td th:text="${cliente.estadoAlta}"></td>	
-      <td><a th:href="@{'/clientesTh/modificar/'+${cliente.id}}"><button>Modificar</button></a></td>	
+      <td><a th:href="@{'/clientesTh/modificar/'+${cliente.id}}"><img src="/images/edit.png" width=30px height=30px></a></td>	
       
     </tr>
     

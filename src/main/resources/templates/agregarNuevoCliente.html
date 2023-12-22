@@ -9,13 +9,14 @@
 	<div id="formulario_crear">
 		<form th:action="@{/clientesTh}" method="post">
 			<div class="form-group">
-				<label>DNI <input type="text" class="form-control" name="nif" /></label>
-		    	<label>Nombre <input type="text" class="form-control" name="nombre" /></label>
-		        <label>Dirección <input type="text" class="form-control" name="direccion" /></label>
-		        <label>Ciudad <input type="text" class="form-control" name="ciudad" /></label>
-		        <label>Teléfono <input type="text" class="form-control" name="telefono" /></label>
-		        <label>Categoría <input type="text" class="form-control" name="categoria" /></label>
-		        <label>Estado Alta <input type="text" class="form-control" name="estadoAlta" /></label>
+				<label>DNI <input type="text" class="form-control" name="nif" maxlength="9"/></label>
+		    	<label>Nombre <input type="text" class="form-control" name="nombre" maxlength="50" required/></label>
+		        <label>Dirección <input type="text" class="form-control" name="direccion" maxlength="150"/></label>
+		        <label>Ciudad <input type="text" class="form-control" name="ciudad" maxlength="50"/></label>
+		        <label>Teléfono <input type="text" class="form-control" name="telefono" maxlength="9"/></label>
+		        <label hidden>Categoría <input type="text" class="form-control" name="categoria" value="Plata" readonly/></label>
+		        <label hidden>Compras <input type="text" class="form-control" name="nVentas" value="0"/></label>
+		        <label hidden>Estado Alta <input type="text" class="form-control" name="estadoAlta" value="1"/></label>
 		        <label><input type="submit" value="Confirmar" /> <input type="reset" value="Borrar" /></label>
 	        </div>
 	    </form>
