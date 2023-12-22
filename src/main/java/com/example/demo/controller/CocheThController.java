@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.bussiness.ServicioCoche;
+import com.example.demo.common.exceptions.ServicioException;
 import com.example.demo.entities.Coche;
 
 @Controller
@@ -27,9 +29,17 @@ public class CocheThController {
 		model.addAttribute("coches", coches);	
 		return "coches";
 	}
+	
+	@GetMapping("/crear")
+	public String crearCoche(Model model) throws ServicioException {
+		
+		model.addAttribute("coche", new Coche());
+		
+		return "agregarNuevoCoche";
+	}
 
 	@PostMapping
-	public String grabarDepartamento(@ModelAttribute Coche coche,Model model) throws Exception {
+	public String grabarCoche(@ModelAttribute Coche coche,Model model) throws Exception {
 		
 		coche.setEstado(true);
 		coche=servicio.grabarCoche(coche);
@@ -37,6 +47,24 @@ public class CocheThController {
 		List<Coche> coches = servicio.listCoches();
 		
 		model.addAttribute("coches", coches);
-		return "coches";
+		return "redirect:/cochesTh";
+	}
+	
+	@GetMapping("/modificar/{matricula}")
+	public String modificarCoche(@PathVariable String matricula,Model model) throws Exception {
+		
+		Coche coche = servicio.conseguirCoche(matricula);
+		
+		model.addAttribute("coche", coche);	
+		
+		return "modificarCoche";
+	}
+	
+	@GetMapping("/borrar/{matricula}")
+	public String borrarCoche(@PathVariable String matricula,Model model) throws Exception {
+		
+		servicio.eliminarCoche(matricula);
+		
+		return "redirect:/cochesTh";
 	}
 }

@@ -1,6 +1,7 @@
 package com.example.demo.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -17,6 +18,6 @@ public interface CocheRepository extends JpaRepository<Coche, String>{
 	
 	List<Coche> findByMarcaAndModelo(String marca, String modelo);
 
-	List<Coche> findByMatricula(String matricula);
+	Optional<Coche> findByMatricula(String matricula);
 	
 }
