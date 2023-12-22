@@ -101,5 +101,20 @@ public class ServicioClienteImpl implements ServicioCliente {
 		}
 		return clientes;
 	}
+	
+	@Override
+	public void eliminarCliente(Integer id) throws ServicioException{
+		log.info("[eliminarCliente]");
+		log.debug("[id: "+id+"]");
+		
+			try {
+			repository.deleteById(id);
+			
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		
+	}
 
 }

@@ -5,6 +5,19 @@
 <link href="/css/estilos.css" rel="stylesheet" type="text/css"	/>
 </head>
 <body>
+	
+	<div class="container">
+	    <nav class="d-flex justify-content-center py-3">
+	      <ul class="nav nav-pills">
+	        <li class="nav-item"><a th:href="@{/inicio}" class="nav-link active" aria-current="page">Home</a></li>
+	        <li class="nav-item"><a th:href="@{/cochesTh}" class="nav-link">Coches</a></li>
+	        <li class="nav-item"><a th:href="@{/clientesTh}" class="nav-link">Clientes</a></li>
+	        <li class="nav-item"><a th:href="@{/empleadosTh}" class="nav-link">Empleados</a></li>
+	        <li class="nav-item"><a th:href="@{/ventasTh}" class="nav-link">Ventas</a></li>
+	      </ul>
+	    </nav>
+  </div>
+  
 	<div id="formulario">
 	<form th:action="@{/clientesTh}" th:object="${cliente}" method="post">
 		<div class="form-group">
@@ -17,7 +30,7 @@
 	        <label>Categoría <input type="text" class="form-control" th:field="*{categoria}" /></label>
 	        <label>Compras <input type="text" class="form-control" th:field="*{nVentas}" /></label>
 	        <label>Estado Alta <input type="text" class="form-control" th:field="*{estadoAlta}" /></label>
-	        <label><button type="submit"><img src="/images/edit.png" width=30px height=30px></button> <input type="reset" value="Borrar" /></label>
+	        <label><button type="submit"><img src="/images/edit.png" width=30px height=30px></button><button type="reset"><img src="/images/undo.png" width=30px height=30px></button></label>
         </div>
     </form>
 	</div>

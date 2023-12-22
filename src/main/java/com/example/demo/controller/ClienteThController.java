@@ -58,8 +58,6 @@ public class ClienteThController {
 		return "modificarCliente";
 	}
 	
-	///// Nuevo /////
-	
 	@GetMapping("clientes/estadoAlta")
 	public String paginaClientesAlta(Model model) throws Exception{
 		List<Cliente> clientes = servicio.listEstadoAlta();
@@ -75,5 +73,7 @@ public class ClienteThController {
 		return "clientes";
 		
 	}
+	
+	
 	
 }

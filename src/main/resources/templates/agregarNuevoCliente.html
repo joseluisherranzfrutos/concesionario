@@ -6,6 +6,18 @@
 </head>
 <body>
 	
+	<div class="container">
+	    <nav class="d-flex justify-content-center py-3">
+	      <ul class="nav nav-pills">
+	        <li class="nav-item"><a th:href="@{/inicio}" class="nav-link active" aria-current="page">Home</a></li>
+	        <li class="nav-item"><a th:href="@{/cochesTh}" class="nav-link">Coches</a></li>
+	        <li class="nav-item"><a th:href="@{/clientesTh}" class="nav-link">Clientes</a></li>
+	        <li class="nav-item"><a th:href="@{/empleadosTh}" class="nav-link">Empleados</a></li>
+	        <li class="nav-item"><a th:href="@{/ventasTh}" class="nav-link">Ventas</a></li>
+	      </ul>
+	    </nav>
+  </div>
+  
 	<div id="formulario_crear">
 		<form th:action="@{/clientesTh}" method="post">
 			<div class="form-group">

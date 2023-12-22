@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -51,5 +52,11 @@ public class ClienteController {
 	@GetMapping(value="/buscarEstadoBaja")
 	public List<Cliente> listBaja() throws ServicioException{
 		return servicio.listEstadoBaja();
+	}
+	
+	@DeleteMapping 
+	public String delete(@Param(value = "id") Integer id) throws ServicioException{
+		servicio.eliminarCliente(id);
+		return "Cliente eliminado correctamente";
 	}
 }

@@ -16,5 +16,7 @@ public interface ServicioCliente {
 	List<Cliente> listEstadoAlta() throws ServicioException;
 
 	List<Cliente> listEstadoBaja() throws ServicioException;
+	
+	void eliminarCliente(Integer id) throws ServicioException;
 
 }
