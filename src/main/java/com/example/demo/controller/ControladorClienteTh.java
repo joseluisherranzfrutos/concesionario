@@ -43,10 +43,9 @@ public class ControladorClienteTh {
 	public String create(@ModelAttribute Cliente cliente,Model model) throws ServicioException {
 		cliente = servicio.grabarCliente(cliente);
 		model.addAttribute("cliente", cliente);
-		List<Cliente> clientes = servicio.listClientes();
-		
-		model.addAttribute("clientes", clientes);	
-		return "clientes";
+	
+		return "redirect:/clientesTh";
+
 		
 	}
 	
@@ -55,6 +54,7 @@ public class ControladorClienteTh {
 		Cliente cliente = servicio.conseguirCliente(id);
 		
 		model.addAttribute("cliente", cliente);	
+		
 		return "modificarCliente";
 	}
 	
