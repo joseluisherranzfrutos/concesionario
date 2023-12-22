@@ -17,7 +17,7 @@ import com.example.demo.entities.Cliente;
 
 @Controller
 @RequestMapping(value={"/clientesTh"})
-public class ControladorClienteTh {
+public class ClienteThController {
 	
 	@Autowired
 	ServicioCliente servicio;

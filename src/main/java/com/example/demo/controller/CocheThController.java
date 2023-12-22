@@ -15,7 +15,7 @@ import com.example.demo.entities.Coche;
 
 @Controller
 @RequestMapping(value={"/","/cochesTh"})
-public class ControladorCocheTh {
+public class CocheThController {
 	
 	@Autowired
 	ServicioCoche servicio;
