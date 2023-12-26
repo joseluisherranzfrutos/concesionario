@@ -116,19 +116,39 @@ public class ServicioClienteImpl implements ServicioCliente {
 		}
 		
 	}
+//  Busqueda por nombre o dni
+//	@Override
+//	public List<Cliente> busquedaCliente(String clave) throws ServicioException{
+//		log.info("resultadoClientes");
+//		List<Cliente> clientes;
+//		
+//		try {
+//			clientes=repository.buscarCliente(clave);
+//		}catch(Exception e){
+//			log.error("Exception", e);
+//			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+//		}
+//		return clientes;
+//	}
 
 	@Override
-	public List<Cliente> busquedaCliente(String clave) throws ServicioException{
-		log.info("resultadoClientes");
+	public List<Cliente> findByDniNombre(String nif, String nombre) throws ServicioException {
+		log.info("[findByDniNombre]");
+
 		List<Cliente> clientes;
-		
 		try {
-			clientes=repository.buscarCliente(clave);
-		}catch(Exception e){
+			if (nif == null) {
+				clientes = repository.findByNombre(nombre);
+			} else if (nombre == null) {
+				clientes = repository.findByNif(nif);
+			} else {
+				clientes = repository.findByNifAndNombre(nif, nombre);
+			}
+
+		} catch (Exception e) {
 			log.error("Exception", e);
-			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+			throw new ServicioException(CodeError.ERROR_GENERAL, e);
 		}
 		return clientes;
 	}
-
 }
