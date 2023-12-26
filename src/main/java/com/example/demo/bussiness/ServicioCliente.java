@@ -18,5 +18,8 @@ public interface ServicioCliente {
 	List<Cliente> listEstadoBaja() throws ServicioException;
 	
 	void eliminarCliente(Integer id) throws ServicioException;
+	
+	List<Cliente> busquedaCliente(String clave) throws ServicioException;
+	
 
 }

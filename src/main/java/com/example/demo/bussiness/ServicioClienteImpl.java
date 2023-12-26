@@ -117,4 +117,18 @@ public class ServicioClienteImpl implements ServicioCliente {
 		
 	}
 
+	@Override
+	public List<Cliente> busquedaCliente(String clave) throws ServicioException{
+		log.info("resultadoClientes");
+		List<Cliente> clientes;
+		
+		try {
+			clientes=repository.buscarCliente(clave);
+		}catch(Exception e){
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return clientes;
+	}
+
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.bussiness.ServicioCliente;
 import com.example.demo.common.exceptions.ServicioException;
@@ -32,10 +33,8 @@ public class ClienteThController {
 	
 	@GetMapping("/crear")
 	public String nuevoCliente(Model model) throws ServicioException {
-		
 		model.addAttribute("cliente", new Cliente());
-		
-		
+				
 		return "agregarNuevoCliente";
 	}
 	
@@ -74,6 +73,21 @@ public class ClienteThController {
 		
 	}
 	
+	@GetMapping("/d/{id}")
+	public String eliminarCliente(@PathVariable Integer id,Model model) throws Exception {
+		servicio.eliminarCliente(id);
+		
+		return "redirect:/clientesTh";	
+	}
 	
+	@RequestMapping("/resultados")
+	public String mostrarClientes(@RequestParam String clave, Model model) throws ServicioException {
+		List<Cliente> clientes=servicio.busquedaCliente(clave);
+		
+		model.addAttribute("clientes", clientes);
+		
+		return "clientes";
+		
+	}
 	
 }
