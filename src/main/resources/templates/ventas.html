@@ -33,8 +33,8 @@
 			  <option>Seleccionar empleado</option>
 			  <option th:each="empleado:${empleados}" th:value="${empleado.id}" th:text="${empleado.nombre}"></option>
 			</select>
-			<label>Monto <input type="text" name="monto" /></label>
-			<input type="submit" value="Vender">
+			<label>Monto <input type="number" step="0.01" required name="monto" /></label>
+			<button type="submit"><img src="/images/vender.png" width=30px height=30px></button>
 		</form>
 	</p>
 </div>
