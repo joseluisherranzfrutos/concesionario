@@ -22,10 +22,10 @@
   </div>
 
 <div >
-	<p><a th:href="@{/clientesTh/crear}"><img src="/images/add.png" width=30px height=30px></a>
-	<a th:href="@{/clientesTh}"><img src="/images/all.png" width=30px height=30px></a>
-	<a th:href="@{/clientesTh/clientes/estadoAlta}"><img src="/images/mostrar_activos.png" width=30px height=30px></a>
-	<a th:href="@{/clientesTh/clientes/estadoBaja}"><img src="/images/mostrar_inactivos.png" width=30px height=30px></a></p>
+	<p><a th:href="@{/clientesTh/crear}"><img src="/images/add.png" width=30px height=30px title="Nuevo cliente"></a>
+	<a th:href="@{/clientesTh}"><img src="/images/all.png" width=30px height=30px title="Mostrar todos"></a>
+	<a th:href="@{/clientesTh/clientes/estadoAlta}"><img src="/images/mostrar_activos.png" width=30px height=30px title="Mostrar altas"></a>
+	<a th:href="@{/clientesTh/clientes/estadoBaja}"><img src="/images/mostrar_inactivos.png" width=30px height=30px title="Mostrar bajas"></a></p>
 	
 </div>
 
@@ -38,7 +38,7 @@
 <div id="seccionBuscador">
 	        <form th:action="@{/clientesTh/buscar}" method="get">
 	            <input type="text"  name="nif" placeholder="Introduce DNI"/><input type="text"  name="nombre" placeholder="Introduce nombre"/>
-	           <button type="submit"><img src="/images/search.png" width=30px height=30px></button>
+	           <button type="submit"><img src="/images/search.png" width=30px height=30px title="Buscar"></button>
 	        </form>
 </div>
     
@@ -67,9 +67,9 @@
       <td th:text="${cliente.telefono}"></td>
       <td th:text="${cliente.categoria}"></td>
       <td th:text="${cliente.nVentas}" ></td>
-      <td ><img th:if="${cliente.estadoAlta}" src="/images/activo.png" width=30px height=30px ></td>	
-      <td><a th:href="@{'/clientesTh/modificar/'+${cliente.id}}"><img src="/images/edit.png" width=30px height=30px></a></td>	
-      <td><a th:href="@{'/clientesTh/d/'+${cliente.id}}"><img src="/images/delete.png" width=30px height=30px></a></td>	
+      <td ><img th:if="${cliente.estadoAlta}" src="/images/activo.png" width=30px height=30px ><img th:if="!${cliente.estadoAlta}" src="/images/inactivo.png" width=30px height=30px ></td>
+      <td><a th:href="@{'/clientesTh/modificar/'+${cliente.id}}"><img src="/images/edit.png" width=30px height=30px title="Modificar cliente"></a></td>	
+      <td><a th:href="@{'/clientesTh/d/'+${cliente.id}}"><img src="/images/delete.png" width=30px height=30px title="Eliminar cliente"></a></td>	
     </tr>
     
   </tbody>
