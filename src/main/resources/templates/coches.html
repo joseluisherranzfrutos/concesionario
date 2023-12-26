@@ -23,6 +23,12 @@
 		<a th:href="@{/cochesTh/crear}"><img src="/images/add.png" width=30px height=30px /></a>
 		<a th:href="@{/cochesTh/vendidos}"><img src="/images/sold.png" width=30px height=30px /></a>
 		<a th:href="@{/cochesTh}"><img src="/images/all.png" width=30px height=30px /></a>
+	    <div id="seccionBuscador">
+	        <form th:action="@{/cochesTh/buscarMarca}" method="get">
+	            <input type="text"  name="marca" placeholder="Introduce marca"/>
+	           <button type="submit"><img src="/images/search.png" width=30px height=30px></button>
+	        </form>
+        </div>
 	</p>
 </div>
 <div>

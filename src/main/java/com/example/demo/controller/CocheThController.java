@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,6 +74,13 @@ public class CocheThController {
 	public String cochesVendidos(Model model) throws Exception {
 		List<Coche> coches = servicio.listCochesVendidos();
 		
+		model.addAttribute("coches", coches);	
+		return "coches";
+	}
+	
+	@GetMapping("/buscarMarca")
+	public String buscarMarca(@Param(value = "marca") String marca, Model model) throws Exception {
+		List<Coche> coches = servicio.findByMarca(marca);		
 		model.addAttribute("coches", coches);	
 		return "coches";
 	}

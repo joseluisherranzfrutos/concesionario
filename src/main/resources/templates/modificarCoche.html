@@ -5,6 +5,17 @@
 <link href="/css/estilos.css" rel="stylesheet" type="text/css"	/>
 </head>
 <body>
+	<div class="container">
+	    <nav class="d-flex justify-content-center py-3">
+	      <ul class="nav nav-pills">
+	        <!-- <li class="nav-item"><a th:href="@{/inicio}" class="nav-link" aria-current="page">Home</a></li> -->
+	        <li class="nav-item"><a th:href="@{/cochesTh}" class="nav-link active">Coches</a></li>
+	        <li class="nav-item"><a th:href="@{/clientesTh}" class="nav-link">Clientes</a></li>
+	        <!--<li class="nav-item"><a th:href="@{/empleadosTh}" class="nav-link">Empleados</a></li>-->
+	        <li class="nav-item"><a th:href="@{/ventasTh}" class="nav-link">Ventas</a></li>
+	      </ul>
+	    </nav>
+	</div>
 	<div id="formulario">
 	<form th:action="@{/cochesTh}" th:object="${coche}" method="post">
 		<div class="form-group">
