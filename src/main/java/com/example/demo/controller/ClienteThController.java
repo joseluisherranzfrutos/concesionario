@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.bussiness.ServicioCliente;
 import com.example.demo.common.exceptions.ServicioException;
@@ -79,15 +80,23 @@ public class ClienteThController {
 		
 		return "redirect:/clientesTh";	
 	}
-	
-	@RequestMapping("/resultados")
-	public String mostrarClientes(@RequestParam String clave, Model model) throws ServicioException {
-		List<Cliente> clientes=servicio.busquedaCliente(clave);
-		
-		model.addAttribute("clientes", clientes);
-		
+//  Busqueda por nombre o dni	
+//	@RequestMapping("/resultados")
+//	public String mostrarClientes(@RequestParam String clave, Model model) throws ServicioException {
+//		List<Cliente> clientes=servicio.busquedaCliente(clave);
+//		
+//		model.addAttribute("clientes", clientes);
+//		
+//		return "clientes";
+//		
+//	}
+//	
+	@GetMapping("/buscar")
+	public String buscarDniNombre(@Param(value = "nif") String nif,@Param(value = "nombre") String nombre, Model model) throws Exception {
+		if (nif.equals("")) nif=null;
+		if (nombre.equals("")) nombre=null;
+		List<Cliente> clientes = servicio.findByDniNombre(nif, nombre);
+		model.addAttribute("clientes", clientes);	
 		return "clientes";
-		
 	}
-	
 }
