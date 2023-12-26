@@ -78,9 +78,11 @@ public class CocheThController {
 		return "coches";
 	}
 	
-	@GetMapping("/buscarMarca")
-	public String buscarMarca(@Param(value = "marca") String marca, Model model) throws Exception {
-		List<Coche> coches = servicio.findByMarca(marca);		
+	@GetMapping("/buscar")
+	public String buscarMarca(@Param(value = "marca") String marca,@Param(value = "modelo") String modelo, Model model) throws Exception {
+		if (marca=="") marca=null;
+		if (modelo=="") modelo=null;
+		List<Coche> coches = servicio.findByMarcaModelo(marca, modelo);
 		model.addAttribute("coches", coches);	
 		return "coches";
 	}
