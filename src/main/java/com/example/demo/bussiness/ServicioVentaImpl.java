@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.common.Constantes;
 import com.example.demo.common.exceptions.CodeError;
 import com.example.demo.common.exceptions.ServicioException;
 import com.example.demo.dto.VentaDTO;
@@ -20,7 +21,6 @@ import com.example.demo.repositories.ClienteRepository;
 import com.example.demo.repositories.CocheRepository;
 import com.example.demo.repositories.EmpleadoRepository;
 import com.example.demo.repositories.VentaRepository;
-import com.exampled.demo.common.Constantes;
 
 @Service
 public class ServicioVentaImpl implements ServicioVenta{

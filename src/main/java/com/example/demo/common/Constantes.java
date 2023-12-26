@@ -1,4 +1,4 @@
-package com.exampled.demo.common;
+package com.example.demo.common;
 
 public class Constantes {
 	

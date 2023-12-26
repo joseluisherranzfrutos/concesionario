@@ -41,7 +41,8 @@ public class CocheThController {
 	@PostMapping
 	public String grabarCoche(@ModelAttribute Coche coche,Model model) throws Exception {
 		
-		coche.setEstado(true);
+		if(coche.getEstado()==null) coche.setEstado(false);
+		
 		coche=servicio.grabarCoche(coche);
 		
 		List<Coche> coches = servicio.listCoches();
@@ -66,5 +67,13 @@ public class CocheThController {
 		servicio.eliminarCoche(matricula);
 		
 		return "redirect:/cochesTh";
+	}
+	
+	@GetMapping("/vendidos")
+	public String cochesVendidos(Model model) throws Exception {
+		List<Coche> coches = servicio.listCochesVendidos();
+		
+		model.addAttribute("coches", coches);	
+		return "coches";
 	}
 }
