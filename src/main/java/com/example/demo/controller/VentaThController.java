@@ -18,6 +18,7 @@ import com.example.demo.dto.VentaDTO;
 import com.example.demo.entities.Cliente;
 import com.example.demo.entities.Coche;
 import com.example.demo.entities.Empleado;
+import com.example.demo.entities.Venta;
 
 @Controller
 @RequestMapping(value={"/","/ventasTh"})
@@ -54,6 +55,10 @@ public class VentaThController {
 		Double beneficios = servicioVenta.beneficios();
 		
 		model.addAttribute("beneficios",beneficios);
+		
+		List<Venta> ventas = servicioVenta.listVentas();
+		
+		model.addAttribute("ventas",ventas);
 		
 		return "ventas";
 	
