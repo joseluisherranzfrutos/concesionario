@@ -27,9 +27,9 @@
       <th scope="col">Modelo</th>
       <th scope="col">Nombre de cliente</th>
       <th scope="col">Nombre de empleado</th>
-      <th scope="col">Monto</th>
-      <th scope="col">Fecha</th>
+      <th scope="col">Monto</th>   
       <th scope="col">Precio</th>
+      <th scope="col">Fecha</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -42,8 +42,8 @@
       <td th:text="${venta.cliente.nombre}"></td>
       <td th:text="${venta.empleado.nombre}"></td>
       <td th:text="${venta.monto}+ '€'"></td>
-      <td th:text="${venta.fecha}"></td>
       <td th:text="${venta.coche.precio} + '€'"></td>
+      <td th:text="${venta.fecha}"></td>
 
 
     </tr>
