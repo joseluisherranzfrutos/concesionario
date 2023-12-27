@@ -14,6 +14,7 @@ import com.example.demo.bussiness.ServicioCliente;
 import com.example.demo.bussiness.ServicioCoche;
 import com.example.demo.bussiness.ServicioEmpleado;
 import com.example.demo.bussiness.ServicioVenta;
+import com.example.demo.common.exceptions.ServicioException;
 import com.example.demo.dto.VentaDTO;
 import com.example.demo.entities.Cliente;
 import com.example.demo.entities.Coche;
@@ -78,4 +79,36 @@ public class VentaThController {
 		return "redirect:/ventasTh";
 	}
 	
+	@GetMapping(value="/buscar")
+	public String listaCochesEmpleado(@Param(value= "nombre") String nombre, Model model) throws ServicioException{
+		
+		List<Coche> cochesFiltrados = servicioVenta.listaCochesEmpleado(nombre);
+		
+		model.addAttribute("cochesFiltrados",cochesFiltrados);
+		
+		
+		//Generamos la pagina inicial de ventas
+		
+		List<Coche> cochesNoVendidos = servicioCoche.listCochesNoVendidos();
+		
+		model.addAttribute("cochesNoVendidos", cochesNoVendidos);
+		
+		List<Cliente> clientesAlta = servicioCliente.listEstadoAlta();
+		
+		model.addAttribute("clientesAlta", clientesAlta);
+		
+		List<Empleado> empleados = servicioEmpleado.listEmpleados();
+		
+		model.addAttribute("empleados", empleados);
+		
+		Double beneficios = servicioVenta.beneficios();
+		
+		model.addAttribute("beneficios",beneficios);
+		
+		List<Venta> ventas = servicioVenta.listVentas();
+		
+		model.addAttribute("ventas",ventas);
+		
+		return "ventas";
+	}
 }
