@@ -12,6 +12,6 @@ public interface ServicioEmpleado {
 	
 	Empleado conseguirEmpleado(Integer id) throws ServicioException;
 	
-	void eliminarEmpleado(Integer id) throws ServicioException;
+	void eliminarEmpleado(Integer id) throws Exception;
 	
 }

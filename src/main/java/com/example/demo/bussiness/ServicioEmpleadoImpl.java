@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 import com.example.demo.common.exceptions.CodeError;
 import com.example.demo.common.exceptions.ServicioException;
 import com.example.demo.entities.Empleado;
+import com.example.demo.entities.Venta;
 import com.example.demo.repositories.EmpleadoRepository;
+import com.example.demo.repositories.VentaRepository;
 
 @Service
 public class ServicioEmpleadoImpl implements ServicioEmpleado {
@@ -21,6 +23,9 @@ public class ServicioEmpleadoImpl implements ServicioEmpleado {
 
 	@Autowired
 	EmpleadoRepository repository;
+	
+	@Autowired
+	VentaRepository repositoryVenta;
 
 	@Override
 	public List<Empleado> listEmpleados() throws ServicioException {
@@ -74,18 +79,22 @@ public class ServicioEmpleadoImpl implements ServicioEmpleado {
 	}
 	
 	@Override
-	public void eliminarEmpleado(Integer id) throws ServicioException{
+	public void eliminarEmpleado(Integer id) throws Exception{
 		log.info("[eliminarEmpleado]");
 		log.debug("[id: "+id+"]");
 		
-			try {
+		try {
+			Optional<Venta> ventaOp;
+			ventaOp = repositoryVenta.findEmpleadoConVentas(id);
+			if(ventaOp.isPresent()) throw new ServicioException("No se puede borrar el empleado porque existe una venta asociada.");	
 			repository.deleteById(id);
-			
+		}catch(ServicioException se) {
+			log.error("ServicioException", se);
+			throw new Exception(se.getCodigo());
 		}catch(Exception e) {
 			log.error("Exception", e);
-			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+			throw new Exception(CodeError.ERROR_GENERAL,e);
 		}
-		
 	}
 
 }

@@ -130,7 +130,7 @@ public class ServicioCocheImpl implements ServicioCoche {
 		try {
 			Optional<Coche> cocheOp;
 			cocheOp = repository.findByMatriculaAndEstadoTrue(matricula);
-			if(cocheOp.isPresent()) throw new ServicioException("No se puede borrar el coche porque existe una venta de ese coche.");
+			if(cocheOp.isPresent()) throw new ServicioException("No se puede borrar el coche porque existe una venta asociada.");
 			repository.deleteById(matricula);
 		}catch(ServicioException se) {
 			log.error("ServicioException", se);
