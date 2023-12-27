@@ -9,6 +9,8 @@ import com.example.demo.entities.Coche;
 public interface CocheRepository extends JpaRepository<Coche, String>{
 	
 	List<Coche> findByEstadoTrue();
+	
+	Optional<Coche> findByMatriculaAndEstadoTrue(String matricula);
 		
 	List<Coche> findByEstadoFalse();
 

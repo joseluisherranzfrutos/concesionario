@@ -60,7 +60,7 @@ public class CocheController {
 	}
 	
 	@DeleteMapping 
-	public String delete(@Param(value = "matricula") String matricula) throws ServicioException{
+	public String delete(@Param(value = "matricula") String matricula) throws Exception{
 		servicio.eliminarCoche(matricula);
 		return "Coche eliminado correctamente";
 	}

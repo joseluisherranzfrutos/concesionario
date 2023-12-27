@@ -123,16 +123,21 @@ public class ServicioCocheImpl implements ServicioCoche {
 	}
 
 	@Override
-	public void eliminarCoche(String matricula) throws ServicioException {
+	public void eliminarCoche(String matricula) throws Exception {
 		log.info("[eliminarCoche]");
 		log.debug("[matricula: " + matricula + "]");
 
 		try {
+			Optional<Coche> cocheOp;
+			cocheOp = repository.findByMatriculaAndEstadoTrue(matricula);
+			if(cocheOp.isPresent()) throw new ServicioException("No se puede borrar el coche porque existe una venta de ese coche.");
 			repository.deleteById(matricula);
-
-		} catch (Exception e) {
+		}catch(ServicioException se) {
+			log.error("ServicioException", se);
+			throw new Exception(se.getCodigo());
+		}catch(Exception e) {
 			log.error("Exception", e);
-			throw new ServicioException(CodeError.ERROR_GENERAL, e);
+			throw new Exception(CodeError.ERROR_GENERAL,e);
 		}
 
 	}
