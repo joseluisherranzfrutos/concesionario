@@ -78,6 +78,14 @@ public class CocheThController {
 		return "coches";
 	}
 	
+	@GetMapping("/noVendidos")
+	public String cochesEnVenta(Model model) throws Exception {
+		List<Coche> coches = servicio.listCochesNoVendidos();
+		
+		model.addAttribute("coches", coches);	
+		return "coches";
+	}
+	
 	@GetMapping("/buscar")
 	public String buscarMarcaModelo(@Param(value = "marca") String marca,@Param(value = "modelo") String modelo, Model model) throws Exception {
 		if (marca.equals("")) marca=null;

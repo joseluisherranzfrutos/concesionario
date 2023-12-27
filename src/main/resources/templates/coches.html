@@ -21,7 +21,8 @@
 <div>
 	<p>
 		<a th:href="@{/cochesTh/crear}"><img src="/images/add.png" width=30px height=30px title="Nuevo coche"/></a>
-		<a th:href="@{/cochesTh/vendidos}"><img src="/images/sold.png" width=30px height=30px title="Mostrar vendidos"/></a>
+		<a th:href="@{/cochesTh/vendidos}"><img src="/images/sold.png" width=30px height=30px title="Mostrar coches vendidos"/></a>
+		<a th:href="@{/cochesTh/noVendidos}"><img src="/images/en_venta.png" width=30px height=30px title="Mostrar coches en venta"/></a>
 		<a th:href="@{/cochesTh}"><img src="/images/all.png" width=30px height=30px title="Mostrar todos"/></a>
 	    <div id="seccionBuscador">
 	        <form th:action="@{/cochesTh/buscar}" method="get">
@@ -52,7 +53,7 @@
       <td th:text="${coche.color}"></td>
       <td th:text="${coche.precio}+'€'"></td>
       <td th:text="${coche.anyo}"></td>
-      <td><img th:if="${coche.estado}" src="/images/sold.png" width=30px height=30px></td>
+      <td><img th:if="${coche.estado}" src="/images/sold.png" width=30px height=30px><img th:if="!${coche.estado}" src="/images/en_venta.png" width=30px height=30px></td>
       <td><a th:href="@{'/cochesTh/modificar/'+${coche.matricula}}"><img src="/images/edit.png" width=30px height=30px title="Modificar coche"/></a></td>
       <td><a th:href="@{'/cochesTh/borrar/'+${coche.matricula}}"><img src="/images/delete.png" width=30px height=30px title="Eliminar coche"/></a></td>	  
     </tr>

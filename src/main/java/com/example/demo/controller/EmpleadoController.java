@@ -27,6 +27,7 @@ public class EmpleadoController {
 		return servicio.listEmpleados();
 		
 	}
+	
 	@PostMapping
 	public Empleado create(@RequestBody Empleado empleado) throws ServicioException {
 		return servicio.grabarEmpleado(empleado);
