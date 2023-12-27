@@ -30,7 +30,6 @@
       <th scope="col">Monto</th>   
       <th scope="col">Precio</th>
       <th scope="col">Fecha</th>
-      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -52,7 +51,7 @@
 		<form id="fventa" method="post" th:action="@{/ventasTh}">
 			<select name="matricula" required>
 			  <option>Seleccionar coche</option>
-			  <option th:each="coche:${cochesNoVendidos}" th:value="${coche.matricula}" th:text="${coche.matricula}+' '+${coche.marca}+' '+${coche.modelo}"></option>
+			  <option th:each="coche:${cochesNoVendidos}" th:value="${coche.matricula}" th:text="${coche.matricula}+' '+${coche.marca}+' '+${coche.modelo}+' '+${coche.precio}+'€'"></option>
 			</select>
 			<select name="idCliente" required>
 			  <option>Seleccionar cliente</option>

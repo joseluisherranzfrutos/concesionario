@@ -46,7 +46,7 @@
       <td th:text="${empleado.direccion}"></td>
       <td th:text="${empleado.email}"></td>
       <td th:text="${empleado.telefono}"></td>
-      <td th:text="${empleado.sueldo}"></td>
+      <td th:text="${empleado.sueldo}+'€'"></td>
       <td th:text="${empleado.comision}" ></td>
       <td><a th:href="@{'/empleadosTh/modificar/'+${empleado.id}}"><img src="/images/edit.png" width=30px height=30px title="Modificar empleado"></a></td>	
       <td><a th:href="@{'/empleadosTh/d/'+${empleado.id}}"><img src="/images/delete.png" width=30px height=30px title="Eliminar empleado"></a></td>	

@@ -93,9 +93,4 @@ public class Empleado {
 		return "Empleado [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", email=" + email
 				+ ", telefono=" + telefono + ", sueldo=" + sueldo + ", comision=" + comision + "]";
 	}
-	
-	
-	
-	
-
 }
