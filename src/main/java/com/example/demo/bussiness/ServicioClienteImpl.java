@@ -103,16 +103,22 @@ public class ServicioClienteImpl implements ServicioCliente {
 	}
 	
 	@Override
-	public void eliminarCliente(Integer id) throws ServicioException{
+	public void eliminarCliente(Integer id) throws Exception{
 		log.info("[eliminarCliente]");
 		log.debug("[id: "+id+"]");
-		
-			try {
+	
+		try {
+			Optional<Cliente> clienteOp;
+			clienteOp = repository.findClienteSinVentas(id);
+			if(!clienteOp.isPresent()) throw new ServicioException("No se puede borrar el cliente porque existe una venta asociada.");	
 			repository.deleteById(id);
 			
+		}catch(ServicioException se) {
+			log.error("ServicioException", se);
+			throw new Exception(se.getCodigo());
 		}catch(Exception e) {
 			log.error("Exception", e);
-			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+			throw new Exception(CodeError.ERROR_GENERAL,e);
 		}
 		
 	}

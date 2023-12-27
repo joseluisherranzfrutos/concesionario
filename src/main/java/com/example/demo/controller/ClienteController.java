@@ -55,7 +55,7 @@ public class ClienteController {
 	}
 	
 	@DeleteMapping 
-	public String delete(@Param(value = "id") Integer id) throws ServicioException{
+	public String delete(@Param(value = "id") Integer id) throws Exception{
 		servicio.eliminarCliente(id);
 		return "Cliente eliminado correctamente";
 	}

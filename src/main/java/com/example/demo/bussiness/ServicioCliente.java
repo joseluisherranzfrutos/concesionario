@@ -17,11 +17,7 @@ public interface ServicioCliente {
 
 	List<Cliente> listEstadoBaja() throws ServicioException;
 	
-	void eliminarCliente(Integer id) throws ServicioException;
-	
-//  Busqueda por nombre o dni
-//	List<Cliente> busquedaCliente(String clave) throws ServicioException;
-	
+	void eliminarCliente(Integer id) throws Exception;
 	
 	List<Cliente> findByDniNombre(String nif, String nombre) throws ServicioException;
 
