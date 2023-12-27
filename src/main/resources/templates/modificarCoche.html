@@ -11,7 +11,7 @@
 	        <!-- <li class="nav-item"><a th:href="@{/inicio}" class="nav-link" aria-current="page">Home</a></li> -->
 	        <li class="nav-item"><a th:href="@{/cochesTh}" class="nav-link active">Coches</a></li>
 	        <li class="nav-item"><a th:href="@{/clientesTh}" class="nav-link">Clientes</a></li>
-	        <!--<li class="nav-item"><a th:href="@{/empleadosTh}" class="nav-link">Empleados</a></li>-->
+	        <li class="nav-item"><a th:href="@{/empleadosTh}" class="nav-link">Empleados</a></li>
 	        <li class="nav-item"><a th:href="@{/ventasTh}" class="nav-link">Ventas</a></li>
 	      </ul>
 	    </nav>
@@ -27,8 +27,8 @@
 	        <label>Año <input type="number" class="form-control" th:field="*{anyo}" /></label>
 	        <input type="hidden" class="form-control" th:field="*{estado}" /></label>
 	        <label>
-	        	<button type="submit"><img src="/images/edit.png" width=30px height=30px></button>
-	        	<button type="reset"><img src="/images/undo.png" width=30px height=30px></button>
+	        	<button type="submit"><img src="/images/edit.png" width=30px height=30px title="Modificar"></button>
+	        	<button type="reset"><img src="/images/undo.png" width=30px height=30px title="Deshacer"></button>
 	        </label>
         </div>
     </form>

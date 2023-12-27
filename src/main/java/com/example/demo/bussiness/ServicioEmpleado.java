@@ -10,4 +10,8 @@ public interface ServicioEmpleado {
 
 	Empleado grabarEmpleado(Empleado empleado) throws ServicioException;
 	
+	Empleado conseguirEmpleado(Integer id) throws ServicioException;
+	
+	void eliminarEmpleado(Integer id) throws ServicioException;
+	
 }

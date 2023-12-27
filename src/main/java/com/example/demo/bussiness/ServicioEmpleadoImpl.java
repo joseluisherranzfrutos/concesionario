@@ -2,6 +2,7 @@
 package com.example.demo.bussiness;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,6 +50,42 @@ public class ServicioEmpleadoImpl implements ServicioEmpleado {
 			throw new ServicioException(CodeError.ERROR_GENERAL, e);
 		}
 		return empleado;
+	}
+	
+	@Override
+	public Empleado conseguirEmpleado(Integer id) throws ServicioException {
+		log.info("[conseguirEmpleado]");
+		log.debug("[idEmpleado: "+id+"]");
+		
+		Empleado empleado;
+		
+		try {
+			Optional<Empleado> empleadoOp= repository.findById(id);
+			if(!empleadoOp.isPresent()) throw new ServicioException(CodeError.EMPLEADO_NOT_FOUND);
+			empleado= empleadoOp.get();
+		}catch(ServicioException se) {
+			log.error("ServicioException", se);
+			throw se;
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		return empleado;
+	}
+	
+	@Override
+	public void eliminarEmpleado(Integer id) throws ServicioException{
+		log.info("[eliminarEmpleado]");
+		log.debug("[id: "+id+"]");
+		
+			try {
+			repository.deleteById(id);
+			
+		}catch(Exception e) {
+			log.error("Exception", e);
+			throw new ServicioException(CodeError.ERROR_GENERAL,e);
+		}
+		
 	}
 
 }
