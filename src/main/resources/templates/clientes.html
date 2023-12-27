@@ -30,12 +30,6 @@
 	
 </div>
 
-<!--<div id="seccionBuscador">
-        <form th:action="@{/clientesTh/resultados}" method="get">
-            <input type="text"  name="clave" id="buscador" placeholder="Nombre, DNI del cliente"/>
-            <button type="submit"><img src="/images/search.png" width=30px height=30px></button>
-        </form>
-    </div>-->
 <div id="seccionBuscador">
 	        <form th:action="@{/clientesTh/buscar}" method="get">
 	            <input type="text"  name="nif" placeholder="Introduce DNI"/><input type="text"  name="nombre" placeholder="Introduce nombre"/>

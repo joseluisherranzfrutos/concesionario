@@ -80,17 +80,7 @@ public class ClienteThController {
 		
 		return "redirect:/clientesTh";	
 	}
-//  Busqueda por nombre o dni	
-//	@RequestMapping("/resultados")
-//	public String mostrarClientes(@RequestParam String clave, Model model) throws ServicioException {
-//		List<Cliente> clientes=servicio.busquedaCliente(clave);
-//		
-//		model.addAttribute("clientes", clientes);
-//		
-//		return "clientes";
-//		
-//	}
-//	
+
 	@GetMapping("/buscar")
 	public String buscarDniNombre(@Param(value = "nif") String nif,@Param(value = "nombre") String nombre, Model model) throws Exception {
 		if (nif.equals("")) nif=null;
