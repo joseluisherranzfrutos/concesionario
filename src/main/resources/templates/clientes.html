@@ -65,7 +65,7 @@
       <td ><img th:if="${cliente.estadoAlta}" src="/images/activo.png" width=30px height=30px ><img th:if="!${cliente.estadoAlta}" src="/images/inactivo.png" width=30px height=30px ></td>
       <td><a th:href="@{'/clientesTh/modificar/'+${cliente.id}}"><img src="/images/edit.png" width=30px height=30px title="Modificar cliente"></a></td>	
       <td><a th:href="@{'/clientesTh/d/'+${cliente.id}}"><img th:if="!${cliente.nVentas}" src="/images/delete.png" width=30px height=30px title="Eliminar cliente" onclick="return confirmation()"></a></td>	
-      
+     
     </tr>
     
   </tbody>

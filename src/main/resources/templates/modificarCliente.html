@@ -28,8 +28,12 @@
 	        <label>Ciudad <input type="text" class="form-control" th:field="*{ciudad}" maxlength="50"/></label>
 	        <label>Teléfono <input type="text" class="form-control" th:field="*{telefono}" maxlength="9"/></label>
 	        <label>Categoría <input type="text" class="form-control" th:field="*{categoria}" /></label>
-	        <label>Compras <input type="text" class="form-control" th:field="*{nVentas}" /></label>
-	        <label>Estado Alta <input type="text" class="form-control" th:field="*{estadoAlta}" /></label>
+	        <label hidden>Compras <input type="text" class="form-control" th:field="*{nVentas}" /></label>
+	        <label>Estado cliente 
+	        	<select name="cliente.estadoAlta" required th:field="*{estadoAlta}">
+			  	  <option value="true" >Estado alta</option>
+			  		<option value="false" >Estado baja</option>
+				</select>
 	        <label>
 	        	<button type="submit"><img src="/images/edit.png" width=30px height=30px title="Modificar"></button>
 	        	<button type="reset" title="Deshacer"><img src="/images/undo.png" width=30px height=30px></button>
