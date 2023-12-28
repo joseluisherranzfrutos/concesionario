@@ -57,7 +57,7 @@
       <td th:text="${coche.anyo}"></td>
       <td><img th:if="${coche.estado}" src="/images/sold.png" width=30px height=30px><img th:if="!${coche.estado}" src="/images/en_venta.png" width=30px height=30px></td>
       <td><a th:href="@{'/cochesTh/modificar/'+${coche.matricula}}"><img src="/images/edit.png" width=30px height=30px title="Modificar coche"/></a></td>
-      <td><a th:href="@{'/cochesTh/borrar/'+${coche.matricula}}"><img src="/images/delete.png" width=30px height=30px title="Eliminar coche" onclick="return confirmation()"/></a></td>	  
+      <td><a th:href="@{'/cochesTh/borrar/'+${coche.matricula}}"><img th:if="!${coche.estado}" src="/images/delete.png" width=30px height=30px title="Eliminar coche" onclick="return confirmation()"/></a></td>	  
     </tr>
   </tbody>
 </table>
